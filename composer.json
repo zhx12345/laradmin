@@ -1,6 +1,6 @@
 {
     "name": "zhxlan/laradmin",
-    "description": "The One Test package",
+    "description": "一个 PHP 后端基础功能接口",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -13,6 +13,6 @@
             "email": "zhx.0830@qq.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {}
 }
