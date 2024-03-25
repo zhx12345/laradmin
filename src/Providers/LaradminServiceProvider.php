@@ -1,9 +1,9 @@
 <?php
 
-namespace Zhxlan\Laradmin;
+namespace Zhxlan\Laradmin\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Zhxlan\Laradmin\Controller\IndexController;
+use Zhxlan\Laradmin\Http\Controllers\IndexController;
 
 class LaradminServiceProvider extends ServiceProvider
 {
@@ -28,7 +28,13 @@ class LaradminServiceProvider extends ServiceProvider
     public function boot()
     {
         // 注册路由
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
+
+        // 发布配置文件
+        $this->publishes([
+            __DIR__.'/../../config/laradmin.php' => config_path('laradmin.php'),
+            __DIR__.'/../../config/area.php' => config_path('area.php'),
+        ]);
     }
 }

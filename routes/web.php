@@ -1,6 +1,3 @@
 <?php
 
-use \Zhxlan\Laradmin\Controller as Laradmin;
-
-
-Route::get('/laradmin', [Laradmin\IndexController::class, 'index'])->name('laradmin.index');
+Route::get('/laradmin', [\Zhxlan\Laradmin\Http\Controllers\IndexController::class, 'index'])->name('laradmin.index');

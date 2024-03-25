@@ -22,11 +22,10 @@ composer require zhxlan/laradmin
 
 基本使用:
 
-
 ```php
 'providers' => ServiceProvider::defaultProviders()->merge([
     ...
-    \Zhxlan\Laradmin\LaradminServiceProvider::class
+    \Zhxlan\Laradmin\Providers\LaradminServiceProvider::class
 ])->toArray(),
 ```
 

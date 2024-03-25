@@ -1,7 +1,7 @@
 {
     "name": "zhxlan/laradmin",
     "description": "一个 PHP 后端基础功能接口",
-    "license": "MIT",
+    "keywords": ["laravel", "laradmin"],
     "autoload": {
         "psr-4": {
             "Zhxlan\\Laradmin\\": "src/"
@@ -13,6 +13,7 @@
             "email": "zhx.0830@qq.com"
         }
     ],
+    "license": "MIT",
     "minimum-stability": "stable",
     "require": {}
 }
