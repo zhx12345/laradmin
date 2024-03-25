@@ -7,6 +7,12 @@ use Zhxlan\Laradmin\Http\Controllers\IndexController;
 
 class LaradminServiceProvider extends ServiceProvider
 {
+    protected array $routeMiddleware = [
+        'admin.auth'       => Middleware\Authenticate::class,
+    ];
+
+
+
     /**
      * Register any application services.
      *
@@ -18,7 +24,17 @@ class LaradminServiceProvider extends ServiceProvider
         $this->app->bind('laradmin', function ($app) {
             return new IndexController();
         });
+
+        $this->registerRouteMiddleware();
+
     }
+
+    protected array $middlewareGroups = [
+        'admin' => [
+            'admin.auth',
+        ],
+    ];
+
 
     /**
      * Bootstrap any application services.
@@ -37,4 +53,21 @@ class LaradminServiceProvider extends ServiceProvider
             __DIR__.'/../../config/area.php' => config_path('area.php'),
         ]);
     }
+
+    /**
+     * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
+    protected function registerRouteMiddleware(): void
+    {
+        $router = $this->app->make('router');
+
+        foreach ($this->routeMiddleware as $key => $middleware) {
+            $router->aliasMiddleware($key, $middleware);
+        }
+        foreach ($this->middlewareGroups as $key => $middleware) {
+            $router->middlewareGroup($key, $middleware);
+        }
+    }
+
 }
