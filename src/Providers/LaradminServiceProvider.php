@@ -8,9 +8,8 @@ use Zhxlan\Laradmin\Http\Controllers\IndexController;
 class LaradminServiceProvider extends ServiceProvider
 {
     protected array $routeMiddleware = [
-        'admin.auth'       => Middleware\Authenticate::class,
+        'admin.auth' => Middleware\Authenticate::class,
     ];
-
 
 
     /**
@@ -24,7 +23,6 @@ class LaradminServiceProvider extends ServiceProvider
         $this->app->bind('laradmin', function ($app) {
             return new IndexController();
         });
-
         $this->registerRouteMiddleware();
 
     }
@@ -49,8 +47,8 @@ class LaradminServiceProvider extends ServiceProvider
 
         // 发布配置文件
         $this->publishes([
-            __DIR__.'/../../config/laradmin.php' => config_path('laradmin.php'),
-            __DIR__.'/../../config/area.php' => config_path('area.php'),
+            __DIR__ . '/../../config/laradmin.php' => config_path('laradmin.php'),
+            __DIR__ . '/../../config/area.php' => config_path('area.php'),
         ]);
     }
 
