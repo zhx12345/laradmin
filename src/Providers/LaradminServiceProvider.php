@@ -4,11 +4,12 @@ namespace Zhxlan\Laradmin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Zhxlan\Laradmin\Http\Controllers\IndexController;
+use Zhxlan\Laradmin\Http\Middleware\Authenticate;
 
 class LaradminServiceProvider extends ServiceProvider
 {
     protected array $routeMiddleware = [
-        'admin.auth' => Middleware\Authenticate::class,
+        'admin.auth' => Authenticate::class
     ];
 
 
@@ -59,7 +60,6 @@ class LaradminServiceProvider extends ServiceProvider
     protected function registerRouteMiddleware(): void
     {
         $router = $this->app->make('router');
-
         foreach ($this->routeMiddleware as $key => $middleware) {
             $router->aliasMiddleware($key, $middleware);
         }

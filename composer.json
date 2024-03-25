@@ -5,7 +5,11 @@
     "autoload": {
         "psr-4": {
             "Zhxlan\\Laradmin\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
+
     },
     "authors": [
         {

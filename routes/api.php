@@ -28,7 +28,7 @@ Route::prefix('admin/api/v1')->group(function () {
 /**
  * v1 验证登录信息
  */
-Route::prefix('admin/api/v1')->middleware(['verify.login'])->group(function () {
+Route::prefix('admin/api/v1')->middleware(['admin.auth'])->group(function () {
 
     Route::get('sysver', [v1\CommonController::class, 'sysVar']); // [版本]
     Route::post('password', [v1\SysuserController::class, 'password']); // [密码修改]

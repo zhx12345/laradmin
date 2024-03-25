@@ -10,7 +10,7 @@ class Authenticate
 {
     public function handle($request, Closure $next)
     {
-        $auth = $this->shouldPassThrough();
+        $auth = self::shouldPassThrough($request);
         if ($auth['result']) {
             $request->merge(['global' => $auth['user']]);
             return $next($request);
