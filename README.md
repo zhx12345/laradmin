@@ -17,6 +17,9 @@
 ```bash
 composer require zhxlan/laradmin
 ```
+```
+php artisan vendor:publish --provider="Zhxlan\Laradmin\Providers\LaradminServiceProvider"
+```
 
 ## 使用示例
 
