@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use League\Flysystem\Config;
 use Zhxlan\Laradmin\Helpers\ApiResponse;
 use Zhxlan\Laradmin\Helpers\Tree;
 
@@ -179,7 +180,7 @@ class SysmenuController extends BaseController
      */
     public function myMenu(Request $request)
     {
-        if ($request['global']['user']['user_name'] == env('APP_SYS_ADMIN_USERNAME')) {
+        if ($request['global']['user']['user_name'] == Config('laradmin.super_username')) {
             //超级管理员不验证权限
             $menuList = $this->modelClass::orderBy('sort', 'desc')->get()->toArray();
         } else {
