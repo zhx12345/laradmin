@@ -37,7 +37,7 @@ class SysuserController extends BaseController
     public function captcha()
     {
         $encipherStr = time();
-        return ApiResponse::success(['captcha' => url('api/v1/admin/captchaImg?_=' . $encipherStr), 'time' => $encipherStr ]);
+        return ApiResponse::success(['captcha' => url('admin/api/v1/captchaImg?_=' . $encipherStr), 'time' => $encipherStr ]);
     }
 
     /**
